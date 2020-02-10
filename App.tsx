@@ -61,7 +61,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1,justifyContent: 'space-between',}}>
         <Greeting name='Jack Johnson' />
         <Greeting name='Bruce' />
         <Greeting name='Yeet!!!' />
@@ -86,13 +86,11 @@ export default class App extends Component {
             {this.state.bodyText}
           </Text>
         </Text>
-        
+
         <MyAppHeaderText>Text styled as a header</MyAppHeaderText>
-
-        <View style={{width: 200, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
-
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
