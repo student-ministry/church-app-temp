@@ -6,10 +6,16 @@ class Greeting extends Component {
     return (
       <View style={{alignItems: 'center'}}>
         <Text style={styles.red}>Hello {this.props.name}!</Text>
+        <GreetingV2 nameV2='Nice to meet you!' />
+        <Blink text="Let's blink" />
       </View>
     );
   }
 }
+
+function GreetingV2(prop){
+  return <Text>Greetings, {prop.nameV2}</Text>
+} 
 
 class Blink extends Component {
 
@@ -19,7 +25,7 @@ class Blink extends Component {
       this.setState(previousState => (
         { isShowingText: !previousState.isShowingText }
       ))
-    ), 1000);
+    ), 2000);
   }
 
   //state object
@@ -55,10 +61,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{alignItems: 'center', top: 50}}>
+      <View style={{flex: 1}}>
         <Greeting name='Jack Johnson' />
         <Greeting name='Bruce' />
         <Greeting name='Yeet!!!' />
+        <GreetingV2 nameV2='Youpeng' />
         <Blink text='I love to blink' />
         
         <Text style={styles.red}>just red</Text>
@@ -81,6 +88,10 @@ export default class App extends Component {
         </Text>
         
         <MyAppHeaderText>Text styled as a header</MyAppHeaderText>
+
+        <View style={{width: 200, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
 
       </View>
     );
