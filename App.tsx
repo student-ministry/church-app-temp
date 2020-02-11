@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, TextInput, Text, View, Button, Platform, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback,} from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button, ScrollView, Platform, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback,} from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -71,7 +71,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView>
         <Greeting name='Jack Johnson' />
         <Greeting name='Bruce' />
         <Greeting name='Yeet!!!' />
@@ -174,7 +174,7 @@ export default class App extends Component {
           </View>
         </TouchableHighlight>
 
-      </View>
+      </ScrollView>
     );
   }
 }
