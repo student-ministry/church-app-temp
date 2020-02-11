@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button} from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -50,18 +50,20 @@ class MyAppHeaderText extends Component {
   }
 }
 
+
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      bodyText: 'This is not really a bird nest.',
+      text: '',
     };
   }
 
   render() {
     return (
-      <View style={{flex: 1,justifyContent: 'space-between',}}>
+      <View style={styles.container}>
         <Greeting name='Jack Johnson' />
         <Greeting name='Bruce' />
         <Greeting name='Yeet!!!' />
@@ -91,6 +93,48 @@ export default class App extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+
+        <TextInput 
+          style={{height: 50}}
+          placeholder="Type here to translate!"
+          onChangeText={text => this.setState({text})}
+          value={this.state.text}
+        />
+        <Text style={{padding: 10, fontSize: 42}}>
+          {this.state.text.split(' ').map(word => word&&'🍕').join(' ')}
+        </Text>
+
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={()=>{
+              alert('Nice!')
+            }}
+            title="Press Me"
+          />
+        </View>
+        <View style={styles.alternativeLayoutButtonContainer}>
+          <Button 
+            onPress={()=>{
+              alert('One!')
+            }}
+            title="one"
+            color="#841584"
+          />
+          <Button 
+            onPress={()=>{
+              alert('Two!')
+            }}
+            title="two"
+            color="#341584"
+          />
+          <Button 
+            onPress={()=>{
+              alert('Three!')
+            }}
+            title="three"
+            color="#8484"
+          />
+        </View>
       </View>
     );
   }
@@ -101,7 +145,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   bigBlue: {
     color: 'blue',
@@ -119,4 +163,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  buttonContainer: {
+    margin: 20
+  },
+  alternativeLayoutButtonContainer: {
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
